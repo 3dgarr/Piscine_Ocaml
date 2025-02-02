@@ -16,4 +16,4 @@ let ft_print_alphabet =
 
 
 
-  ftc_print_alphabet ;
+  ft_print_alphabet ;
