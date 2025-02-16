@@ -1,5 +1,3 @@
-
-
 let ft_print_alphabet = 
   let rec print_symbol symbol = 
     if int_of_char symbol > int_of_char 'z' then
@@ -15,5 +13,4 @@ let ft_print_alphabet =
     ;;
 
 
-
-  ft_print_alphabet ;
+let () = ft_print_alphabet

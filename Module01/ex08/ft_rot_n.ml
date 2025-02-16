@@ -30,23 +30,23 @@ let ft_rot_n n str =
 	String.map shift_char str ;
     ;;
 
-print_endline (ft_rot_n 1 "abcdefghijklmnopqrstuvwxyz");;
+let () = print_endline (ft_rot_n 1 "abcdefghijklmnopqrstuvwxyz");;
 (*Output should be  -->	"bcdefghijklmnopqrstuvwxyza" *)
 
-print_endline (ft_rot_n 13 "abcdefghijklmnopqrstuvwxyz");;
+let () = print_endline (ft_rot_n 13 "abcdefghijklmnopqrstuvwxyz");;
 (*Output should be  -->	"nopqrstuvwxyzabcdefghijklm" *)
 
-print_endline (ft_rot_n 42 "0123456789");;
+let () = print_endline (ft_rot_n 42 "0123456789");;
 (*Output should be  -->	"0123456789" *)
 
-print_endline (ft_rot_n 2 "OI2EAS67B9");;
+let () = print_endline (ft_rot_n 2 "OI2EAS67B9");;
 (*Output should be  -->	"QK2GCU67D9" *)
 
-print_endline (ft_rot_n 0 "Damned !");;
+let () = print_endline (ft_rot_n 0 "Damned !");;
 (*Output should be  -->	"Damned !" *)
 
-print_endline (ft_rot_n 42 "");;
+let () = print_endline (ft_rot_n 42 "");;
 (*Output should be  -->	"" *)
 
-print_endline (ft_rot_n 1 "NBzlk qnbjr !");;
+let () = print_endline (ft_rot_n 1 "NBzlk qnbjr !");;
 (*Output should be  -->	"OCaml rocks !" *)

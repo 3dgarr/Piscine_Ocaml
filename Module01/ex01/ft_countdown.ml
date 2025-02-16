@@ -12,6 +12,6 @@ let rec ft_countdown number =
     end
 ;;
   
-ft_countdown (3) ;
-ft_countdown (0) ;
-ft_countdown (-1);
+let () = ft_countdown (3) 
+let () = ft_countdown (0) 
+let () = ft_countdown (-1)

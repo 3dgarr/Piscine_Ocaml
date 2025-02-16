@@ -11,7 +11,7 @@ let ft_print_rev str =
     print_symbol str (String.length str);
 ;;
 
-ft_print_rev "barev";
-ft_print_rev "Hello World!";
-ft_print_rev "";
-ft_print_rev "1234567890";
+let () = ft_print_rev "barev"
+let () = ft_print_rev "Hello World!"
+let () = ft_print_rev ""
+let () = ft_print_rev "1234567890"
