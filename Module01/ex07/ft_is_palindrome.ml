@@ -7,14 +7,13 @@ let ft_is_palindrome str =
     else
       check_palindrome str (start_index + 1) (end_index - 1)
   in 
-    check_palindrome str 0 (String.length str - 1);
-
-;;
+    check_palindrome str 0 (String.length str - 1)
 
 
-print_endline (string_of_bool (ft_is_palindrome "0123456789"));;   
-print_endline (string_of_bool (ft_is_palindrome "madam"));;   
-print_endline (string_of_bool (ft_is_palindrome "apapa"));;   
-print_endline (string_of_bool (ft_is_palindrome "radar"));;   
-print_endline (string_of_bool (ft_is_palindrome "car"));;   
-print_endline (string_of_bool (ft_is_palindrome ""));;   
+let () = 
+  print_endline (string_of_bool (ft_is_palindrome "0123456789")) ;   
+  print_endline (string_of_bool (ft_is_palindrome "madam")) ;   
+  print_endline (string_of_bool (ft_is_palindrome "apapa")) ;   
+  print_endline (string_of_bool (ft_is_palindrome "radar")) ;   
+  print_endline (string_of_bool (ft_is_palindrome "car")) ;   
+  print_endline (string_of_bool (ft_is_palindrome "")) ;   

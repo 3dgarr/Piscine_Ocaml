@@ -35,6 +35,5 @@ let ft_print_comb2 () =
   let unit = decimal + 1 in
   get_decimal decimal unit
 
-;;
 
 let () = ft_print_comb2 ()

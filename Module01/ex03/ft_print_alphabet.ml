@@ -8,9 +8,10 @@ let ft_print_alphabet =
         print_symbol (char_of_int (int_of_char symbol + 1)) ;
       end
     in      
-      print_symbol 'a' ;
-      print_char '\n' ;
-    ;;
+      begin
+        print_symbol 'a';
+        print_char '\n';
+      end
 
 
 let () = ft_print_alphabet

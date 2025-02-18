@@ -35,6 +35,5 @@ let ft_print_comb () =
 	let unit = decimal + 1 in
 	get_hundreds hundred decimal unit
 
-;;
 
 let () = ft_print_comb()

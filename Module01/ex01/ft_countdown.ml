@@ -10,8 +10,9 @@ let rec ft_countdown number =
       print_char '\n';
       ft_countdown (number - 1)
     end
-;;
-  
+
+    
+    
 let () = ft_countdown (3) 
 let () = ft_countdown (0) 
 let () = ft_countdown (-1)
