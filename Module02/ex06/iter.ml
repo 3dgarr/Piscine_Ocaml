@@ -5,7 +5,7 @@ let rec iter (f:int -> int) (x: int) (n: int): int =
 
 
 let () =
-  (* print_endline (string_of_int (iter (fun x -> x * 2) 2 4)) ; *)
-  (* print_endline (string_of_int (iter (fun x -> x * x) 3 2)) ; *)
-  (* print_endline (string_of_int (iter (fun x -> x + 5) 10 5  )) ; *)
+  print_endline (string_of_int (iter (fun x -> x * 2) 2 4)) ;
+  print_endline (string_of_int (iter (fun x -> x * x) 3 2)) ;
+  print_endline (string_of_int (iter (fun x -> x + 5) 10 5  )) ;
   print_endline (string_of_int (iter (( * ) 2) 2 5 )) ;

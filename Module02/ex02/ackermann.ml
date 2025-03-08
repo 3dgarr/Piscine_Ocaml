@@ -1,6 +1,6 @@
 
 let rec ackermann : int -> int -> int = fun m n ->
-  if n = -1 || m = -1 then
+  if n < 0 || m n < 0 then
     -1
   else if m = 0 then
     n + 1

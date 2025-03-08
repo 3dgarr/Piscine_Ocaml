@@ -7,10 +7,10 @@ let leibniz_pi (delta: float): int =
 		let pi_value = 4.0 *. atan 1.0 in
 		let abs_value (x: float): float = if x < 0.0 then -. x else x in
 		if abs_value (temp -. pi_value) <= delta then 
-			begin
-				print_endline ("Pi Value for delta " ^ string_of_float delta ^     " = " ^ string_of_float temp);			
+			(* begin *)
+				(* print_endline ("Pi Value for delta " ^ string_of_float delta ^     " = " ^ string_of_float temp);			 *)
 				i
-			end
+			(* end *)
 		else loop temp (i + 1)
 	  in
 	  loop 0.0 0
