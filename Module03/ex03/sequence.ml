@@ -1,32 +1,58 @@
-let get_nth_of_look_and_say_sequence (n: int) =
-  let make_string_manual (count: int) (digit: char) =
-    let count_str = string_of_int count in
-    let digit_to_str =  function
-      | '0' -> "0"
-      | '1' -> "1"
-      | '2' -> "2"
-      | '3' -> "3"
-      | '4' -> "4"
-      | '5' -> "5"
-      | '6' -> "6"
-      | '7' -> "7"
-      | '8' -> "8"
-      | '9' -> "9"
-      | _   -> failwith "Invalid digit"
-    in
-    let digit_str = digit_to_str digit in
-    count_str ^ digit_str
-  in 
-  let rec look_and_say n =
-    if n < 1 then failwith "n must be >= 1"
-    else if n = 1 then "1"
-    else
-      let prev = look_and_say (n - 1) in
-      let rec aux count acc =
-        match acc with
-        | [] -> []
-        | h :: t ->  
+let rec append lst1 lst2 =
+	match lst1 with
+	| [] -> lst2
+	| head :: tail -> head :: append tail lst2
+and 
 
-      (*TODO:   *)
-  in
-  look_and_say n
+	int_to_char_list n =
+		if n < 10 then [char_of_int (n + 48)]
+		else 
+			append (int_to_char_list (n / 10)) [char_of_int ((n mod 10) + 48)]
+ and
+
+	char_list_to_string lst =
+	let char_digit_to_string c =
+		if c = '0' then "0"
+		else if c = '1' then "1"
+		else if c = '2' then "2"
+		else if c = '3' then "3"
+		else if c = '4' then "4"
+		else if c = '5' then "5"
+		else if c = '6' then "6"
+		else if c = '7' then "7"
+		else if c = '8' then "8"
+		else if c = '9' then "9"
+		else ""
+	in
+		match lst with
+		| [] -> ""
+		| h :: t -> char_digit_to_string h ^ char_list_to_string t
+  
+let sequence n =
+	if n < 1 then ""
+	else
+		let rec new_list input output count =
+		match input with
+		| [] -> output
+		| head :: next :: tail when head = next -> 
+			new_list (next :: tail) output (count + 1)
+		| head :: tail ->
+			let count_chars = int_to_char_list (count + 1) in
+			let updated = append output (append count_chars [head]) in
+			new_list tail updated 0
+		in
+			let rec sequence_aux step current =
+			if step = n then char_list_to_string current
+			else
+				let next = new_list current [] 0 in
+				sequence_aux (step + 1) next
+			in
+				sequence_aux 1 ['1']
+
+	  
+(* Example usage *)
+let () =
+for i = 1 to 10 do
+  let result = sequence i in
+  Printf.printf "Term %d: %s\n" i result
+done
