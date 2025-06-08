@@ -5,29 +5,28 @@ let rec append lst1 lst2 =
 and 
 
 	int_to_char_list n =
-		if n < 10 then [char_of_int (n + 48)]
-		else 
-			append (int_to_char_list (n / 10)) [char_of_int ((n mod 10) + 48)]
+    if n < 10 then [char_of_int (n + 48)]
+    else 
+      append (int_to_char_list (n / 10)) [char_of_int ((n mod 10) + 48)]
  and
-
 	char_list_to_string lst =
-	let char_digit_to_string c =
-		if c = '0' then "0"
-		else if c = '1' then "1"
-		else if c = '2' then "2"
-		else if c = '3' then "3"
-		else if c = '4' then "4"
-		else if c = '5' then "5"
-		else if c = '6' then "6"
-		else if c = '7' then "7"
-		else if c = '8' then "8"
-		else if c = '9' then "9"
-		else ""
-	in
-		match lst with
-		| [] -> ""
-		| h :: t -> char_digit_to_string h ^ char_list_to_string t
-  
+    let char_digit_to_string c =
+      if c = '0' then "0"
+      else if c = '1' then "1"
+      else if c = '2' then "2"
+      else if c = '3' then "3"
+      else if c = '4' then "4"
+      else if c = '5' then "5"
+      else if c = '6' then "6"
+      else if c = '7' then "7"
+      else if c = '8' then "8"
+      else if c = '9' then "9"
+      else ""
+    in
+      match lst with
+      | [] -> ""
+      | h :: t -> char_digit_to_string h ^ char_list_to_string t
+ 
 let sequence n =
 	if n < 1 then ""
 	else
@@ -49,10 +48,7 @@ let sequence n =
 			in
 				sequence_aux 1 ['1']
 
-	  
-(* Example usage *)
 let () =
-for i = 1 to 10 do
-  let result = sequence i in
-  Printf.printf "Term %d: %s\n" i result
-done
+    let n = read_int() in
+    let result = sequence n in
+    print_endline result

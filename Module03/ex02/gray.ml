@@ -32,6 +32,6 @@ and print_list (lst: string list) =
 	  print_list t
   
 let () =
-	let n = read_int () in
+	let n = read_int() in
 	let result = gray n in
 	print_list result
