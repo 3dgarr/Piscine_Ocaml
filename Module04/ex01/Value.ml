@@ -33,7 +33,7 @@ let toString = function
   | As -> "A"
 
 
-let toVerbose = function
+let toStringVerbose = function
   | T2 -> "2"
   | T3 -> "3"
   | T4 -> "4"
