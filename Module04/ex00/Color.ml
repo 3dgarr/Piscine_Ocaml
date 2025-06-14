@@ -1,7 +1,5 @@
 type t = Spade | Heart | Diamond | Club
 
-(* val toString : t -> string *)
-
 let toStringVerbose = function
   | Spade -> "Spade"
   | Heart -> "Heart"
