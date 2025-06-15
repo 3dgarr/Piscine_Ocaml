@@ -33,7 +33,7 @@ let () =
   print_endline "Testing prev function:";
   let test_prev value =
     try
-      let prev_value = prev value in
+      let prev_value = previous value in
       Printf.printf "Value: %s, Previous: %s\n" (toString value) (toString prev_value)
     with Invalid_argument msg ->
       Printf.printf "Value: %s, Error: %s\n" (toString value) msg

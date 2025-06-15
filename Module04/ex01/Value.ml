@@ -63,7 +63,7 @@ let next = function
   | King -> As
   | As -> invalid_arg "No next value for As"
 
-let prev = function
+let previous = function
   | T2 -> invalid_arg "No previous value for T2"
   | T3 -> T2
   | T4 -> T3
