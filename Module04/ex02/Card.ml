@@ -1,5 +1,4 @@
 module Color = struct
-  (* type t = Spade | Heart | Diamond | Club *)
   type t = Spade | Heart | Diamond | Club
 
   let toString = function
@@ -85,7 +84,7 @@ module Value = struct
     | King -> As
     | As -> invalid_arg "No next value for As"
 
-  let prev = function
+  let previous = function
     | T2 -> invalid_arg "No previous value for T2"
     | T3 -> T2
     | T4 -> T3
@@ -108,23 +107,23 @@ let newCard (color: Color.t) (value: Value.t) : t =
   { color; value }
 
 
-let allSpades () : t list = 
+let allSpades : t list = 
   List.map (fun v -> newCard Color.Spade v) Value.all
-let allHearts () : t list =
+
+let allHearts : t list =
   List.map (fun v -> newCard Color.Heart v) Value.all
-let allDiamonds () : t list =
+let allDiamonds : t list =
   List.map (fun v -> newCard Color.Diamond v) Value.all
-let allClubs () : t list =
+let allClubs : t list =
   List.map (fun v -> newCard Color.Club v) Value.all
 
-
-let all() : t list =
+let all : t list =
 
   List.flatten [
-    allSpades ();
-    allHearts ();
-    allDiamonds ();
-    allClubs ();
+    allSpades;
+    allHearts;
+    allDiamonds;
+    allClubs;
   ]
 
 let getValue (card: t) : Value.t =
@@ -134,7 +133,7 @@ let getColor (card: t) : Color.t =
   card.color
 
 let toString (card: t) : string =
-  Printf.sprintf "%s%s" (Color.toString card.color) (Value.toString card.value)
+  Printf.sprintf "%s%s" (Value.toString card.value) (Color.toString card.color)
 
 let toStringVerbose (card: t) : string =
   Printf.sprintf "Card(%s, %s)" (Value.toStringVerbose card.value) (Color.toStringVerbose card.color)

@@ -1,6 +1,6 @@
 let () =
   let open Card in
-    let all_cards = Card.all () in
+    let all_cards = Card.all in
     let sorted_cards = List.sort Card.compare all_cards in
     let max_card = List.fold_left Card.max (List.hd sorted_cards) sorted_cards in
     let min_card = List.fold_left Card.min (List.hd sorted_cards) sorted_cards in
@@ -44,17 +44,32 @@ let () =
 
     print_endline "--------------------------------------------";
     Printf.printf "All Spades with both toString and toStringVerbose:\n";
-    List.iter (fun card -> if Card.isSpade card then Printf.printf "%s | %s\n" (Card.toString card) (Card.toStringVerbose card)) all_cards;
-    
-    Printf.printf "All Hearts with both toString and toStringVerbose:\n";
-    List.iter (fun card -> if Card.isHeart card then Printf.printf "%s | %s\n" (Card.toString card) (Card.toStringVerbose card)) all_cards;
-    
-    Printf.printf "All Diamonds with both toString and toStringVerbose:\n";
-    List.iter (fun card -> if Card.isDiamond card then Printf.printf "%s | %s\n" (Card.toString card) (Card.toStringVerbose card)) all_cards;    
-    
-    Printf.printf "All Clubs with both toString and toStringVerbose:\n";
-    List.iter (fun card -> if Card.isClub card then Printf.printf "%s | %s\n" (Card.toString card) (Card.toStringVerbose card)) all_cards;
+    List.iter (fun card -> 
+      Printf.printf "%s - %s\n" 
+        (Card.toString card) 
+        (Card.toStringVerbose card)
+    ) Card.allSpades;
     print_endline "--------------------------------------------";
+    Printf.printf "All Hearts with both toString and toStringVerbose:\n";
+    List.iter (fun card -> 
+      Printf.printf "%s - %s\n" 
+        (Card.toString card) 
+        (Card.toStringVerbose card)
+    ) Card.allHearts;
+    print_endline "--------------------------------------------";
+    Printf.printf "All Diamonds with both toString and toStringVerbose:\n";
+    List.iter (fun card -> 
+      Printf.printf "%s - %s\n" 
+        (Card.toString card) 
+        (Card.toStringVerbose card)
+    ) Card.allDiamonds;
+    print_endline "--------------------------------------------";
+    Printf.printf "All Clubs with both toString and toStringVerbose:\n";
+    List.iter (fun card -> 
+      Printf.printf "%s - %s\n" 
+        (Card.toString card) 
+        (Card.toStringVerbose card)
+    ) Card.allClubs;
 
     print_endline "--------------------------------------------";
     print_endline "Testing of getValue and getColor functions";
@@ -67,5 +82,3 @@ let () =
     Printf.printf "Color of max card: %s\n" (Card.getColor max_card |> Card.Color.toStringVerbose);
 
     print_endline "--------------------------------------------";
-
-    
