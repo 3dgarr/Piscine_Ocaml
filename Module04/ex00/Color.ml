@@ -13,4 +13,3 @@ let toString = function
   | Club -> "C"
 
 let all = [Spade; Heart; Diamond; Club]
-
