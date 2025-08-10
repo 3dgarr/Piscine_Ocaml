@@ -33,13 +33,13 @@ let () =
     
     let p11 = [|1.0; -2.0; 3.0|] in
     let p12 = [|4.0; 5.0; -6.0|] in
-    let d6 = eu_dist p11 p12 in
-    Printf.printf "The Euclidean distance between the two points is %.2f\n" d6;
+    let d5 = eu_dist p11 p12 in
+    Printf.printf "The Euclidean distance between the two points is %.2f\n" d5;
     
     let p9 = [|1.0; 2.0; 3.0|] in
     let p10 = [|4.0; 5.0|] in
-    let d5 = eu_dist p9 p10 in
-    Printf.printf "The Euclidean distance between the two points is %.2f\n" d5;
+    let d6 = eu_dist p9 p10 in
+    Printf.printf "The Euclidean distance between the two points is %.2f\n" d6;
 
 
 with Invalid_argument msg ->
