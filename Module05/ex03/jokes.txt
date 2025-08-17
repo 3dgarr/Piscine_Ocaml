@@ -1,3 +1,12 @@
-What's missing in an orphanage computer? The motherboard.
-Why do dwarfs work at Lidl (Market)? Because dwarfs are really lidl.
-I won't ever joke about dwarfs..I'm a   
+Why do Java developers wear glasses? Because they don’t C#.
+Why was the JavaScript developer sad? Because he didn’t know how to null his feelings.
+Why did the programmer quit his job? Because he didn’t get arrays.
+A SQL query walks into a bar... Asks for a table.
+Why was the computer cold? It left its Windows open.
+Why did the developer go broke? Because he used up all his cache.
+Why do Python programmers prefer snakes? Because they can import them easily.
+Why do programmers hate nature? Too many bugs.
+Why did the C++ developer go to therapy?
+Because he had too many unresolved references.
+Why did the function break up with the loop? It found someone with better scope.
+Why do COBOL programmers still get paid so much? Because they’re a rare exception.
