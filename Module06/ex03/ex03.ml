@@ -50,11 +50,13 @@ module type MAKE =
 (* --------------------------------------------------------- *)
 (*  The Functor MAKE                                        *)
 (* --------------------------------------------------------- *)
+
 module Make : MAKE =
-	functor (FB : FRACTIONAL_BITS) ->
-	struct
-		type t = int
-    (* type t = { value : int } *)
+  functor (FB : FRACTIONAL_BITS) ->
+  struct
+    (* Use a record to store the internal int value *)
+    type t = { value : int }
+
     let roundf x =
       if x >= 0. then floor (x +. 0.5)
       else ceil  (x -. 0.5)
@@ -62,41 +64,61 @@ module Make : MAKE =
     let scale = 1 lsl FB.bits
     let scale_f = float_of_int scale
 
-		let of_float fl = int_of_float (roundf (fl *. scale_f))
-		let to_int x = x asr FB.bits  (* preserves sign for negatives *)
-    let of_int i = i lsl FB.bits
-		let to_float x = (float_of_int x) /. scale_f
-		let to_string t = string_of_float (to_float t)
-		let zero = 0
-		let one = of_int 1
-		let succ x = x + 1
-		let pred x = x - 1
-		let min x y = if x <= y then x else y
-		let max x y = if x >= y then x else y
-		let gth x y = (x > y)
-		let lth x y = (x < y)
-		let gte x y = (x >= y)
-		let lte x y = (x <= y)
-		let eqp x y = (x == y)
-		let eqs x y = (x = y)
-		let add x y = x + y
-		let sub x y = x - y
-		let mul x y = of_float ((to_float x) *. (to_float y))
+    (* Conversion functions *)
+    let of_float fl = { value = int_of_float (roundf (fl *. scale_f)) }
+    let of_int i = { value = i lsl FB.bits }
+    let to_float x = (float_of_int x.value) /. scale_f
+    let to_int x = x.value asr FB.bits  (* preserves sign *)
+
+    let to_string t = string_of_float (to_float t)
+
+    (* Constants *)
+    let zero = { value = 0 }
+    let one  = of_int 1
+
+    (* Successor / Predecessor *)
+    let succ x = { value = x.value + 1 }
+    let pred x = { value = x.value - 1 }
+
+    (* Min / Max *)
+    let min x y = if x.value <= y.value then x else y
+    let max x y = if x.value >= y.value then x else y
+
+    (* Comparisons *)
+    let gth x y = x.value > y.value
+    let lth x y = x.value < y.value
+    let gte x y = x.value >= y.value
+    let lte x y = x.value <= y.value
+
+    (* Equality *)
+    let eqp x y = x == y       (* physical equality: different record instances → false *)
+    let eqs x y = x = y        (* structural equality: same value → true *)
+
+    (* Arithmetic *)
+    let add x y = { value = x.value + y.value }
+    let sub x y = { value = x.value - y.value }
+    let mul x y = of_float ((to_float x) *. (to_float y))
     let div x y =
-      if y = 0 then raise Division_by_zero
+      if y.value = 0 then raise Division_by_zero
       else of_float ((to_float x) /. (to_float y))
 
+    (* Iteration over a range *)
     let foreach x y fn =
-      if x <= y then
-        let rec up i = if i > y then () else (fn i; up (succ i)) in
-        up x
+      if x.value <= y.value then
+        let rec up i =
+          if i.value > y.value then ()
+          else (fn i; up (succ i))
+        in up x
       else
-        let rec down i = if i < y then () else (fn i; down (pred i)) in
-        down x
-	end
+        let rec down i =
+          if i.value < y.value then ()
+          else (fn i; down (pred i))
+        in down x
+  end
 
-
-
+(* --------------------------------------------------------- *)
+(*  Testing the Fixed-point Modules                          *)
+(* --------------------------------------------------------- *)
 module Fixed4 = Make(struct let bits = 4 end)
 module Fixed8 = Make(struct let bits = 8 end)
 
@@ -214,12 +236,11 @@ let () =
   print_endline (Fixed8.to_string r8);
 
   Fixed4.foreach Fixed4.zero Fixed4.one
-    (fun f -> print_endline (Fixed4.to_string f))
-
+    (fun f -> print_endline (Fixed4.to_string f));
   
 
-let () =
   print_endline "\n\nTesting Fixed-point Modules:\n";
   test_fixed (module Fixed4) "Fixed4 (bits=4)";
   test_fixed (module Fixed8) "Fixed8 (bits=8)";
-  ()
+
+()
