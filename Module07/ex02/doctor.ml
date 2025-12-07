@@ -40,6 +40,11 @@ object (self)
       else
         __hp <- __hp - damage
 
+    method attack (d : Dalek.dalek) : unit =
+      print_endline (__name ^ " attacks the Dalek: " ^ self#use_sonic_screwdriver ^ "!");
+      d#get_damage 20
+
+
     (* sonic screwdriver *)
     method use_sonic_screwdriver : string =
       "Whiiiiwhiiiwhiii Whiiiiwhiiiwhiii Whiiiiwhiiiwhiii"

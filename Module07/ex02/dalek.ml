@@ -39,7 +39,16 @@ class dalek =
       print_endline (self#get_name ^ " is exterminating " ^ p#to_string);
       print_endline (p#die);
 
+    (* method exterminate_doc (d : Doctor.doctor) =
+      _shield <- false;  (* disable shield to attack *)
+      print_endline (self#get_name ^ " is exterminating " ^ d#to_string);
+      d#get_damage 200; *)
+
     (* ------------ DIE ------------ *)
     method die =
       print_endline "Emergency Temporal Shift!"
+
+    (* ------------ GET DAMAGE ------------ *)
+    method get_damage amount =
+      if amount >= _hp then _hp <- 0 else _hp <- _hp - amount
   end
