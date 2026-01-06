@@ -30,6 +30,5 @@ let () =
   let zero_combined = App.combine p1 App.zero in
   print_proj zero_combined;
   assert (zero_combined = ("Piscine", "failed", 45));
-  print_endline "---- Testing combine with zero ----";
 
   print_endline "All App tests passed"

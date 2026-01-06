@@ -11,7 +11,6 @@ struct
 
   let modulo = 12
 
-  (* normalize any int into [0..11] *)
   let normalize h =
     ((h mod modulo) + modulo) mod modulo
 

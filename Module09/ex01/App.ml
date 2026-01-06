@@ -1,17 +1,3 @@
-(* Your monoid will contain:
-• A type project as a product type consisting of a string, a string representing
-status (either "fail" or "succeed"), and an integer for the grade.
-• A zero, which consists of two empty strings and a 0.
-• A combine rule to combine two projects, resulting in a new project with
-the strings concatenated and the average of the grades. If the average
-is above 80, the status is "succeed"; otherwise, it’s "failed".
-• A fail rule to create a new project from the project passed as a parameter,
-with a grade equal to 0 and status set to "failed".
-• A success rule to create a new project from the project passed as a parameter,
-with a grade of 80 and status set to "succeed".
-• Additionally, you will provide a print_proj function in your main for
-testing purposes, typed as App.project -> unit. *)
-
 module App :
 sig
   type project = string * string * int
