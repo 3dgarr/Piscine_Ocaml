@@ -27,7 +27,6 @@ let one_nn (training : radar list) ((vector : float array), _ : radar) : string 
 
 
 let () =
-  (* Training set *)
   let training = [
     ([|0.0; 0.0|], "A");   (* bottom-left corner *)
     ([|0.0; 1.0|], "B");   (* top-left corner *)
@@ -35,7 +34,6 @@ let () =
     ([|1.0; 1.0|], "D");   (* top-right corner *)
   ] in
 
-  (* Test radars *)
   let test1 = ([|0.1; 0.1|], "?") in  (* closest to A *)
   let test2 = ([|0.9; 0.1|], "?") in  (* closest to C *)
   let test3 = ([|0.2; 0.9|], "?") in  (* closest to B *)
@@ -43,7 +41,6 @@ let () =
   let test5 = ([|0.0; 0.4|], "?") in  (* closest to A *)
   let test6 = ([|0.5; 0.0|], "?") in  (* closest to A *)
 
-  (* Assertions *)
   assert (one_nn training test1 = "A");
   assert (one_nn training test2 = "C");
   assert (one_nn training test3 = "B");
