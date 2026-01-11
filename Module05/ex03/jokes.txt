@@ -6,7 +6,6 @@ Why was the computer cold? It left its Windows open.
 Why did the developer go broke? Because he used up all his cache.
 Why do Python programmers prefer snakes? Because they can import them easily.
 Why do programmers hate nature? Too many bugs.
-Why did the C++ developer go to therapy?
-Because he had too many unresolved references.
+Why did the C++ developer go to therapy? Because he had too many unresolved references.
 Why did the function break up with the loop? It found someone with better scope.
 Why do COBOL programmers still get paid so much? Because they’re a rare exception.

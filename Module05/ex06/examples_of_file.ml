@@ -19,9 +19,9 @@ let examples_of_file filename =
 
 
 let () =
-  (* let examples = examples_of_file "/home/edgghaza/Desktop/42/Piscine_Ocaml/Module05/attachments.1.00/attachment/ionosphere.test.csv" in *)
-  (* let examples = examples_of_file "/home/edgghaza/Desktop/42/Piscine_Ocaml/Module05/attachments.1.00/attachment/ionosphere.train.csv" in *)
-  let examples = examples_of_file "/home/edgghaza/Desktop/42/Piscine_Ocaml/Module05/ex06/a.csv" in
+  (* let examples = examples_of_file "ionosphere.test.csv" in *)
+  (* let examples = examples_of_file "ionosphere.train.csv" in *)
+  let examples = examples_of_file "a.csv" in
   List.iter
     (fun (arr, cls) ->
        Array.iter (fun f -> Printf.printf "%f " f) arr;

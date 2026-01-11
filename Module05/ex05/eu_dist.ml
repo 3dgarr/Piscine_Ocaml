@@ -43,4 +43,4 @@ let () =
 
 
 with Invalid_argument msg ->
-  Printf.eprintf "Error: %s\n" msg;
+  Printf.printf "Error: %s\n" msg;
