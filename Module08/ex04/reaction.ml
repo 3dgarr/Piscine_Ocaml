@@ -6,4 +6,6 @@ object (this)
     method virtual get_result : (molecule * int) list
     method virtual balance : reaction
     method virtual is_balanced : bool
+    method virtual to_string : string
+
 end
